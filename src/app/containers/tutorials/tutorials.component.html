@@ -1,0 +1,23 @@
+<h2>My Tutorials</h2>
+
+<div>
+  <label>Tutorial name:
+    <input #tutorialName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(tutorialName.value); tutorialName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="tutorials"
+  *ngIf="tutorials$ | async as tutorials">
+  <li *ngFor="let tutorial of tutorials">
+    <a routerLink="/detail/{{tutorial.id}}">
+      <span class="badge">{{tutorial.id}}</span> {{tutorials.name}}
+    </a>
+    <button class="delete"
+      title="delete tutorial"
+      (click)="delete(tutorial)">x</button>
+  </li>
+</ul>

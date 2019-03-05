@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4>tutorial Search</h4>
+
+  <input #searchBox
+    id="search-box"
+    [ngModel]="searchTerm$ | async"
+    (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let tutorial of tutorials$ | async">
+      <a routerLink="/detail/{{tutorial.id}}">
+        {{tutorial.name}}
+      </a>
+    </li>
+  </ul>
+</div>

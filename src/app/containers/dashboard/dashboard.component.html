@@ -1,0 +1,13 @@
+<h3>Top tutorials</h3>
+<div class="grid grid-pad"
+  *ngIf="topTutorials$ | async as tutorials">
+  <a *ngFor="let tutorial of tutorials"
+    class="col-1-4"
+    routerLink="/detail/{{tutorial.id}}">
+    <div class="module tutorial">
+      <h4>{{tutorial.name}}</h4>
+    </div>
+  </a>
+</div>
+
+<app-tutorial-search></app-tutorial-search>
